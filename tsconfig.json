@@ -18,8 +18,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@opencut/ai-core": ["./src/packages/ai-core/index.ts"],
-      "@opencut/ai-core/*": ["./src/packages/ai-core/*"]
+      "@opencut/ai-core": ["./packages/core/src/index.ts"],
+      "@opencut/ai-core/*": ["./packages/core/src/*"]
     },
 
     /* Linting */

@@ -112,12 +112,37 @@
 git clone https://github.com/MemeCalculate/moyin-creator.git
 cd moyin-creator
 
-# 安装依赖
+# 安装全部工作区依赖（web + desktop）
 npm install
 
-# 启动开发模式
-npm run dev
+# 仅安装 Web 端依赖
+npm run install:web
+
+# 仅安装 Desktop 端依赖
+npm run install:desktop
+
+# 启动桌面端（Electron）开发模式
+npm run dev:desktop
+
+# 启动 Web 端（浏览器）开发模式
+npm run dev:web
 ```
+
+### 项目结构（双端共享）
+
+```text
+apps/
+ ├─ web      # 浏览器运行（Vite）
+ └─ desktop  # Electron 壳层
+
+packages/
+ └─ core     # 双端共享的业务内核（原 ai-core）
+```
+
+- `apps/web` 负责浏览器构建与调试。
+- `apps/desktop` 负责 Electron 进程与桌面打包。
+- `packages/core` 抽离共享 AI 协议、类型与服务，供双端复用。
+- 依赖按工作区拆分：UI 依赖放在 `apps/web` 和 `apps/desktop`，Electron 相关依赖只放在 `apps/desktop`。
 
 ### 配置 API Key
 
@@ -148,17 +173,18 @@ npx electron-vite build
 
 ```
 moyin-creator/
+├── apps/
+│   ├── web/               # 浏览器端工作区（Vite）
+│   └── desktop/           # 桌面端工作区（Electron）
+├── packages/
+│   └── core/              # 双端共享核心包（AI 协议、服务、类型）
 ├── electron/              # Electron 主进程 + Preload
 │   ├── main.ts            # 主进程（存储管理、文件系统、协议处理）
 │   └── preload.ts         # 安全桥接层
 ├── src/
 │   ├── components/        # React UI 组件
-│   │   ├── panels/        # 主面板（剧本、角色、场景、分镜、导演）
-│   │   └── ui/            # 基础 UI 组件库
 │   ├── stores/            # Zustand 全局状态
 │   ├── lib/               # 工具库（AI 调度、图片管理、路由）
-│   ├── packages/          # 内部包
-│   │   └── ai-core/       # AI 核心引擎
 │   └── types/             # TypeScript 类型定义
 ├── build/                 # 构建资源（图标）
 └── scripts/               # 工具脚本

@@ -37,7 +37,7 @@
     "dev:web": "npm run dev -w @moyin/web",
     "build:web": "npm run build -w @moyin/web",
     "dev:desktop": "npm run dev -w @moyin/desktop",
-    "preview:web": "npm run preview -w @moyin/web",
+    "preview:web": "npm run start -w @moyin/web",
     "preview:desktop": "npm run preview -w @moyin/desktop",
     "install:web": "npm install --workspace @moyin/web --include-workspace-root=false",
     "install:desktop": "npm install --workspace @moyin/desktop --include-workspace-root=false"

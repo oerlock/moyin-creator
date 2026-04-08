@@ -5,6 +5,7 @@
  * API Key Manager with rotation and blacklist support
  * Based on AionUi's ApiKeyManager pattern
  */
+import { generateUUID } from '@/lib/utils';
 
 // ==================== Types ====================
 
@@ -215,7 +216,7 @@ export function resolveVideoApiFormat(endpointTypes: string[] | undefined): Mode
  * Generate a UUID v4
  */
 export function generateId(): string {
-  return crypto.randomUUID();
+  return generateUUID();
 }
 
 /**

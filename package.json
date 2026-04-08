@@ -33,7 +33,10 @@
     "build:mac:universal": "node ./scripts/build-desktop.mjs --mac --universal",
     "build:linux": "node ./scripts/build-desktop.mjs --linux",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "electron-vite preview"
+    "preview": "electron-vite preview",
+    "dev:web": "next dev",
+    "build:web": "next build",
+    "start:web": "next start"
   },
   "dependencies": {
     "@radix-ui/react-context-menu": "^2.2.16",
@@ -69,7 +72,8 @@
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.4.0",
     "vaul": "^1.1.2",
-    "zustand": "^5.0.10"
+    "zustand": "^5.0.10",
+    "next": "^15.3.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.18",

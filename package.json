@@ -34,7 +34,7 @@
     "build:linux": "node ./scripts/build-desktop.mjs --linux",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "npm run preview:desktop",
-    "dev:web": "npm run dev -w @moyin/web",
+    "dev:web": "npm run dev -w @moyin/web -- --host 0.0.0.0",
     "build:web": "npm run build -w @moyin/web",
     "dev:desktop": "npm run dev -w @moyin/desktop",
     "preview:web": "npm run start -w @moyin/web",

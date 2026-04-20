@@ -65,6 +65,17 @@ export const DEFAULT_PROVIDERS: Omit<IProvider, 'id' | 'apiKey'>[] = [
     model: ['2009613632530812930'],
     capabilities: ['image_generation', 'vision'],
   },
+  {
+    platform: 'alibaba_bailian',
+    name: '阿里云百炼',
+    baseUrl: 'https://dashscope.aliyuncs.com/compatible-mode/v1',
+    model: [
+      'wanx-v1',
+      'wanx-sketch-to-image-v1',
+      'wanx-style-repaint-v1',
+    ],
+    capabilities: ['image_generation'],
+  },
 ];
 
 // ==================== Model Classification ====================
@@ -90,7 +101,7 @@ export function classifyModelByName(modelName: string): ModelCapability[] {
   const imageGenPatterns = [
     'dall-e', 'dalle', 'flux', 'midjourney', 'niji', 'imagen', 'cogview',
     'gpt-image', 'ideogram', 'sd3', 'stable-diffusion', 'sdxl',
-    'playground', 'recraft', 'kolors', 'seedream',
+    'playground', 'recraft', 'kolors', 'seedream', 'wanx',
   ];
   if (imageGenPatterns.some(p => name.includes(p))) return ['image_generation'];
   // "xxx-image-preview" 类（如 gemini-3-pro-image-preview）
@@ -183,8 +194,8 @@ export function resolveImageApiFormat(endpointTypes: string[] | undefined, model
     if (name.includes('gemini') && (name.includes('image') || name.includes('imagen'))) {
       return 'openai_chat';
     }
-    // GPT image, flux, dall-e, ideogram, sd, recraft → standard images API
-    if (/gpt-image|flux|dall-e|dalle|ideogram|stable-diffusion|sdxl|sd3|recraft|kolors|cogview/.test(name)) {
+    // GPT image, flux, dall-e, ideogram, sd, recraft, wanx → standard images API
+    if (/gpt-image|flux|dall-e|dalle|ideogram|stable-diffusion|sdxl|sd3|recraft|kolors|cogview|wanx/.test(name)) {
       return 'openai_images';
     }
     // sora_image → openai chat

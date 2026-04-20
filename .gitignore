@@ -27,6 +27,7 @@ release/
 .tmp-*
 .backup-assets-panel/
 backups/
+.claude/
 
 # Environment & secrets
 *.env

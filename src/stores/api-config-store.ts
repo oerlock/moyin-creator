@@ -483,11 +483,13 @@ export interface APIConfigStatus {
  * 供应商信息映射
  * 1. memefast - 魔因API，全功能 AI 中转（推荐）
  * 2. runninghub - RunningHub，视角切换/多角度生成
+ * 3. alibaba_bailian - 阿里云百炼，通义万相文生图
  */
 const PROVIDER_INFO: Record<ProviderId, { name: string; services: ServiceType[] }> = {
   memefast: { name: '魔因API', services: ['chat', 'image', 'video', 'vision'] },
   runninghub: { name: 'RunningHub', services: ['image', 'vision'] },
   openai: { name: 'OpenAI', services: [] },
+  alibaba_bailian: { name: '阿里云百炼', services: ['image'] },
   custom: { name: 'Custom', services: [] },
 };
 

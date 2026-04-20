@@ -75,6 +75,18 @@ const PLATFORM_PRESETS: Array<{
     models: ["2009613632530812930"],
   },
   {
+    platform: "alibaba_bailian",
+    name: "阿里云百炼",
+    baseUrl: "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    description: "阿里云 DashScope API，支持通义万相文生图",
+    services: ["图片生成"],
+    models: [
+      "wanx-v1",
+      "wanx-sketch-to-image-v1",
+      "wanx-style-repaint-v1",
+    ],
+  },
+  {
     platform: "custom",
     name: "自定义",
     baseUrl: "",
